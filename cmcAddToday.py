@@ -42,5 +42,4 @@ comboDF=mainData.append(df, ignore_index=True)
 
 print(comboDF)
 
-comboDF.to_pickle(time.strftime('%Y%m%d',time.localtime()) + "pickle.pkl")
 comboDF.to_pickle("mainPickle.pkl")

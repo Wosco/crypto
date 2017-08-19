@@ -25,12 +25,7 @@ volDF.fillna(0,inplace=True)
 capRank=capDF.rank(axis=1,method='min',ascending=False)
 volRank=volDF.rank(axis=1,method='min',ascending=False)
 
-# Dump to CSV using today's date
-capDF.to_csv(time.strftime('%Y%m%d',time.localtime()) + "cap.csv")
-volDF.to_csv(time.strftime('%Y%m%d',time.localtime()) + "vol.csv")
-capRank.to_csv(time.strftime('%Y%m%d',time.localtime()) + "capRank.csv")
-volRank.to_csv(time.strftime('%Y%m%d',time.localtime()) + "volRank.csv")
-
+# Dump to CSV
 capDF.to_csv("cap.csv")
 volDF.to_csv("vol.csv")
 capRank.to_csv("capRank.csv")
