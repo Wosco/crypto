@@ -2,13 +2,6 @@
 import schedule
 import time
 
-schedule.every().day.at("15:00").do(readAndWrite)
-
-while True:
-	schedule.run_pending()
-	time.sleep(60)
-
-
 def readAndWrite():
 	# Add to pickle
 	import pandas as pd
@@ -66,3 +59,10 @@ def readAndWrite():
 	volDF.to_csv("vol.csv")
 	capRank.to_csv("capRank.csv")
 	volRank.to_csv("volRank.csv")
+
+
+schedule.every().day.at("15:00").do(readAndWrite)
+
+while True:
+	schedule.run_pending()
+	time.sleep(60)
