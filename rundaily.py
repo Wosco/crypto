@@ -60,9 +60,9 @@ def readAndWrite():
 	capRank.to_csv("capRank.csv")
 	volRank.to_csv("volRank.csv")
 
+if __name__ == "__main__":
+	schedule.every().day.at("15:00").do(readAndWrite)
 
-schedule.every().day.at("15:00").do(readAndWrite)
-
-while True:
-	schedule.run_pending()
-	time.sleep(60)
+	while True:
+		schedule.run_pending()
+		time.sleep(60)
