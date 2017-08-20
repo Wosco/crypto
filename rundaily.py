@@ -7,7 +7,7 @@ def readAndWrite():
 	import pandas as pd
 	import time
 
-	mainData=pd.read_pickle("mainPickle.pkl")
+	mainData=pd.read_pickle("data/mainPickle.pkl")
 
 	url = "https://coinmarketcap.com/all/views/all/"
 
@@ -53,15 +53,15 @@ def readAndWrite():
 	volRank=volDF.rank(axis=1,method='min',ascending=False)
 
 	# Dump to file
-	comboDF.to_pickle("mainPickle.pkl")
+	comboDF.to_pickle("data/mainPickle.pkl")
 
-	capDF.to_csv("cap.csv")
-	volDF.to_csv("vol.csv")
-	capRank.to_csv("capRank.csv")
-	volRank.to_csv("volRank.csv")
+	capDF.to_csv("data/cap.csv")
+	volDF.to_csv("data/vol.csv")
+	capRank.to_csv("data/capRank.csv")
+	volRank.to_csv("data/volRank.csv")
 
 if __name__ == "__main__":
-	schedule.every().day.at("15:00").do(readAndWrite)
+	schedule.every().day.at("13:00").do(readAndWrite)
 
 	while True:
 		schedule.run_pending()
